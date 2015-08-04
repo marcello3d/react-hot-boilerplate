@@ -3,30 +3,22 @@
 const path = require('path')
 const webpack = require('webpack')
 const AssetsPlugin = require('assets-webpack-plugin')
+const WebpackEntryBuilder = require('./webpack-entry-builder')
 
 const IS_DEVELOPMENT_MODE = process.env.NODE_ENV === 'development'
+
+const entryBuilder = new WebpackEntryBuilder(IS_DEVELOPMENT_MODE ? [
+    'webpack-hot-middleware/client',
+    'webpack/hot/only-dev-server'
+] : [])
+
+entryBuilder.add({ page2: './src/page2' }, 'vendorlite', ['react'])
+entryBuilder.add({ index: './src/index' }, 'vendor', ['react', './src/mega'])
 
 module.exports = {
     debug: false,
     devtool: IS_DEVELOPMENT_MODE ? 'cheap-module-eval-source-map' : 'source-map',
-    entry: {
-        index: './src/index',
-        page2: './src/page2',
-        vendor: [
-
-            // Common modules to require in vendor
-            'react'
-
-        ].concat(IS_DEVELOPMENT_MODE ? [
-
-            // Development-only modules to require in vendor
-            'webpack-hot-middleware/client',
-            'webpack/hot/only-dev-server'
-
-        ] : [
-            // Production-only modules to require in vendor
-        ])
-    },
+    entry: entryBuilder.entries,
     output: {
         path: path.join(__dirname, 'dist'),
         filename: IS_DEVELOPMENT_MODE ? '[name].dev.js' : '[name].[chunkhash].js',
@@ -34,16 +26,15 @@ module.exports = {
         pathinfo: IS_DEVELOPMENT_MODE,
         publicPath: '/static/'
     },
-    plugins: [
+    plugins: entryBuilder.plugins.concat([
 
         // Common plugins
-        new webpack.optimize.CommonsChunkPlugin({name: 'vendor'}),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(IS_DEVELOPMENT_MODE ? 'development' : 'production')
         }),
         new AssetsPlugin({path: path.join(__dirname, 'dist')})
 
-    ].concat(IS_DEVELOPMENT_MODE ? [
+    ], IS_DEVELOPMENT_MODE ? [
 
         // Dev-only plugins
         new webpack.HotModuleReplacementPlugin(),
