@@ -40,8 +40,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor'}),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(IS_DEVELOPMENT_MODE ? 'development' : 'production')
-        }),
-        new AssetsPlugin({path: path.join(__dirname, 'dist')})
+        })
 
     ].concat(IS_DEVELOPMENT_MODE ? [
 
@@ -57,7 +56,8 @@ module.exports = {
             compress: {
                 warnings: false
             }
-        })
+        }),
+        new AssetsPlugin({path: path.join(__dirname, 'dist')})
     ]),
     resolve: {
         extensions: ['', '.js', '.jsx']
