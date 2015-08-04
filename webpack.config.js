@@ -10,8 +10,12 @@ module.exports = {
     debug: false,
     devtool: IS_DEVELOPMENT_MODE ? 'cheap-module-eval-source-map' : 'source-map',
     entry: {
+
+        // Your JavaScript entry-points
         index: './src/index',
         page2: './src/page2',
+
+        // Shared vendor entry-point
         vendor: [
 
             // Common modules to require in vendor
@@ -45,14 +49,14 @@ module.exports = {
     ].concat(IS_DEVELOPMENT_MODE ? [
 
         // Dev-only plugins
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.HotModuleReplacementPlugin(), // This generates delta patches for changing modules at runtime
+        new webpack.NoErrorsPlugin() // This allows the server to continue after errors
 
     ] : [
 
         // Production-only plugins
         new webpack.optimize.OccurenceOrderPlugin(true),
-        new webpack.optimize.UglifyJsPlugin({
+        new webpack.optimize.UglifyJsPlugin({ // This minifies/obfuscates your code
             compress: {
                 warnings: false
             }
@@ -67,6 +71,7 @@ module.exports = {
 
             // Development-only loaders
             {
+                // Hot swap React components
                 test: /\.jsx?$/,
                 loader: 'react-hot'
             }
@@ -75,6 +80,7 @@ module.exports = {
 
             // Common loaders
             {
+                // Transpile ES6/JSX code to ES5
                 test: /\.jsx?$/,
                 loader: 'babel?optional[]=runtime&stage=0',
                 exclude: /node_modules/
