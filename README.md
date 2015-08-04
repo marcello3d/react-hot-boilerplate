@@ -37,7 +37,7 @@ Start the production server with:
 npm start
 ```
 
-### Modules used
+### Notable Modules
 
 * [webpack](https://www.npmjs.com/package/webpack) - efficiently builds common js modules as a browser-compatible js bundle  
 * [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware) - runs webpack as middleware
@@ -45,12 +45,9 @@ npm start
 * [react-hot-loader](https://www.npmjs.com/package/react-hot-loader) - hot swapping react components without a page refresh
 * [babel](https://www.npmjs.com/package/babel) - transpiles ES6/JSX as ES5
 * [babel-runtime](https://www.npmjs.com/package/babel-runtime) - used to export babel helper code to the vendor file
-
-* [express](https://www.npmjs.com/package/express) - web app server
-
-* [node-dev](https://www.npmjs.com/package/node-dev) - automatically restarts node server when any required files change
 * [babel-eslint](https://www.npmjs.com/package/babel-eslint) - lints ES6 code
 * [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) - lints React/JSX code
+* [node-dev](https://www.npmjs.com/package/node-dev) - automatically restarts node server when any required files change
 
 ### Folder structure
 
