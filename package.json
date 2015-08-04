@@ -1,7 +1,7 @@
 {
-  "name": "react-hot-boilerplate",
+  "name": "react-hotplate",
   "version": "1.0.0",
-  "description": "Boilerplate for ReactJS project with hot code reloading",
+  "description": "Boilerplate for ReactJS project with hot code reloading with Express",
   "scripts": {
     "start": "node dev-server",
     "dev": "NODE_ENV=development node dev-server",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaearon/react-hot-boilerplate.git"
+    "url": "https://github.com/marcello3d/react-hotplate.git"
   },
   "keywords": [
     "react",
@@ -24,14 +24,13 @@
     "webpack"
   ],
   "authors": [
-    "Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)",
     "Marcello Bastea-Forte <marcello@cellosoft.com> (http://github.com/marcello3d)"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gaearon/react-hot-boilerplate/issues"
+    "url": "https://github.com/marcello3d/react-hotplate/issues"
   },
-  "homepage": "https://github.com/gaearon/react-hot-boilerplate",
+  "homepage": "https://github.com/marcello3d/react-hotplate",
   "devDependencies": {
     "assets-webpack-plugin": "2.2.0",
     "babel-core": "5.8.9",
