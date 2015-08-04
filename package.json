@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "babel-runtime": "5.8.9",
-    "react": "0.13.3"
+    "react": "0.13.3",
+    "serve-static": "1.10.0"
   }
 }

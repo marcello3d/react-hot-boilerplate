@@ -43,12 +43,20 @@ if (DEVELOPMENT_MODE) {
     // For production we want to cache the assets file at launch
 
     // Read the webpack assets json file (this includes the full hashed versions of files)
-    var assetsJson = require(path.join(webpackConfig.output.path, "webpack-assets.json"));
-    getAssetFilename = function(entryName) {
-        return assetsJson[entryName].js
+    var assetsFilename = path.join(webpackConfig.output.path, "webpack-assets.json");
+    try {
+        var assetsJson = require(assetsFilename);
+        getAssetFilename = function (entryName) {
+            return assetsJson[entryName].js
+        }
+    } catch (e) {
+        console.error("Couldn't load "+assetsFilename+", did you run `npm run build` first?")
+        throw e
     }
 
-    // TODO: serve static files
+    // Serve built webpack files
+    var serveStatic = require('serve-static');
+    app.use(webpackConfig.output.publicPath, serveStatic(webpackConfig.output.path));
 }
 
 // This is a super minimal handlebars-like templating (replaces {{WEBPACK.foo}} with the assets path for 'foo')
