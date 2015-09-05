@@ -1,15 +1,13 @@
-var DEVELOPMENT_MODE = process.env.NODE_ENV === 'development'
+var IS_DEVELOPMENT_MODE = require('./is-development-mode')
 
 var path = require('path')
 var webpackConfig = require('./webpack.config')
 
 module.exports = function webpackMiddleware(app) {
 
-  if (DEVELOPMENT_MODE) {
-
-    // Only require these in development mode
-    var webpack = require('webpack')
-    var compiler = webpack(webpackConfig)
+  if (IS_DEVELOPMENT_MODE) {
+    // Only require in development mode
+    var compiler = require('webpack')(webpackConfig)
 
     // Adds support for compiling and serving up webpack
     app.use(require("webpack-dev-middleware")(compiler, {

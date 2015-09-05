@@ -4,7 +4,7 @@ var path = require('path')
 var webpack = require('webpack')
 var AssetsPlugin = require('assets-webpack-plugin')
 
-var IS_DEVELOPMENT_MODE = process.env.NODE_ENV === 'development'
+var IS_DEVELOPMENT_MODE = require('./is-development-mode')
 
 module.exports = {
     debug: false,
