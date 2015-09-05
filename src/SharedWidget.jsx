@@ -6,7 +6,7 @@ const style = {
 };
 
 module.exports = React.createClass({
-    displayName: 'SummaryLayout',
+    displayName: 'SharedWidget',
     propTypes: {
         children:React.PropTypes.node
     },
