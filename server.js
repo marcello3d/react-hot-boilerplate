@@ -1,9 +1,8 @@
 var express = require('express')
 var http = require('http')
+var hbs = require('hbs')
 
 var webpackConfig = require('./webpack.config')
-
-var hbs = require('hbs')
 
 var app = express()
 
@@ -27,5 +26,5 @@ server.listen(3200, 'localhost', function (err, result) {
         console.log(err)
     }
     var address = server.address()
-    console.log('Listening at ' + address.hostname + ":" + address.port)
+    console.log('Listening at ' + address.address + ":" + address.port)
 })
