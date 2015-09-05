@@ -1,47 +1,62 @@
-react-hot-boilerplate
-=====================
+react-hotplate
+==============
 
-The minimal dev environment to enable live-editing React components.
+react-hotplate is a boilerplate for React + Webpack + Express with hot reloading.
 
-### Usage
+It provides both a development mode (`npm run dev`) and production mode (`npm run build && npm start`).
+
+It was originally based on (gaearon/react-hot-boilerplate)[https://github.com/gaearon/react-hot-boilerplate] and has 
+been updated using (gaearon/react-transform-boilerplate)[https://github.com/gaearon/react-transform-boilerplate].
+
+### Development server
 
 ```
 npm install
-npm start
-open http://localhost:3000
+npm run dev
+open http://localhost:3200
 ```
 
 Now edit `src/App.js`.  
 Your changes will appear without reloading the browser like in [this video](http://vimeo.com/100010922).
 
-### Linting
-
-This boilerplate project includes React-friendly ESLint configuration.
+### Production server usage
 
 ```
-npm run lint
+npm run build
 ```
 
-### Using `0.0.0.0` as Host
+This will eslint and build JavaScript bundles in `./dist/`. 
 
-You may want to change the host in `server.js` and `webpack.config.js` from `localhost` to `0.0.0.0` to allow access from same WiFi network. This is not enabled by default because it is reported to cause problems on Windows. This may also be useful if you're using a VM.
+This webpack config is designed to name the files based on a hash. A filename map is generated in 
+`./dist/webpack-assets.json` and can be used to generate the appropriate html links.
 
-### Missing Features
+Start the production server with:
 
-This boilerplate is purposefully simple to show the minimal configuration for React Hot Loader. For a real project, you'll want to add a separate config for production with hot reloading disabled and minification enabled. You'll also want to add a router, styles and maybe combine dev server with an existing server. This is out of scope of this boilerplate, but you may want to look into [other starter kits](https://github.com/gaearon/react-hot-loader/blob/master/docs/README.md#starter-kits).
+```
+npm start
+```
 
-### Dependencies
+### Notable Modules
 
-* React
-* Webpack
-* [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
-* [babel-loader](https://github.com/babel/babel-loader)
-* [react-hot-loader](https://github.com/gaearon/react-hot-loader)
+* [webpack](https://www.npmjs.com/package/webpack) - efficiently builds common js modules as a browser-compatible js bundle  
+* [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware) - runs webpack as middleware
+* [webpack-hot-middleware](https://www.npmjs.com/package/webpack-hot-middleware) - allows hot swapping node modules without a page refresh
+* [react-transform-webpack-hmr](https://www.npmjs.com/package/react-transform-webpack-hmr) - hot swapping react components without a page refresh
+* [react-transform-catch-errors](https://www.npmjs.com/package/react-transform-catch-errors) - catch exceptions in component renders
+* [babel](https://www.npmjs.com/package/babel) - transpiles ES6/JSX as ES5
+* [babel-runtime](https://www.npmjs.com/package/babel-runtime) - used to export babel helper code to the vendor file
+* [babel-eslint](https://www.npmjs.com/package/babel-eslint) - lints ES6 code
+* [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) - lints React/JSX code
+* [node-dev](https://www.npmjs.com/package/node-dev) - automatically restarts node server when any required files change
 
-### Resources
+### Folder structure
 
-* [Demo video](http://vimeo.com/100010922)
-* [react-hot-loader on Github](https://github.com/gaearon/react-hot-loader)
-* [Integrating JSX live reload into your workflow](http://gaearon.github.io/react-hot-loader/getstarted/)
-* [Troubleshooting guide](https://github.com/gaearon/react-hot-loader/blob/master/docs/Troubleshooting.md)
-* Ping dan_abramov on Twitter or #reactjs IRC
+The meat of the hotplate code is in `server.js` and `webpack.config.js`. Both files look at the `NODE_ENV` environment
+variable to determine if it should run in `development` or `production` mode.
+
+The files for the app are in `src/`.
+
+## License
+
+The original code this was based on was released under the MIT license. 
+My changes are released under public domain.
