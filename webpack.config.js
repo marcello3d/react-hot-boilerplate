@@ -1,10 +1,10 @@
 'use strict'
 
-const path = require('path')
-const webpack = require('webpack')
-const AssetsPlugin = require('assets-webpack-plugin')
+var path = require('path')
+var webpack = require('webpack')
+var AssetsPlugin = require('assets-webpack-plugin')
 
-const IS_DEVELOPMENT_MODE = process.env.NODE_ENV === 'development'
+var IS_DEVELOPMENT_MODE = process.env.NODE_ENV === 'development'
 
 module.exports = {
     debug: false,
