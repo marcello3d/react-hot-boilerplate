@@ -1,13 +1,12 @@
 react-hotplate
 ==============
 
-This fork is inspired by https://github.com/gaearon/react-hot-boilerplate (but almost entirely rewritten)
+react-hotplate is a boilerplate for React + Webpack + Express with hot reloading.
 
-The intention of this fork is to use [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware) and 
-[webpack-hot-middleware](https://www.npmjs.com/package/webpack-hot-middleware) to demonstrate how you could 
-integrate this project into a [express](https://www.npmjs.com/package/express) server.
+It provides both a development mode (`npm run dev`) and production mode (`npm run build && npm start`).
 
-It includes a stub for a "production" server.
+It was originally based on (gaearon/react-hot-boilerplate)[https://github.com/gaearon/react-hot-boilerplate] and has 
+been updated using (gaearon/react-transform-boilerplate)[https://github.com/gaearon/react-transform-boilerplate].
 
 ### Development server
 
@@ -42,7 +41,8 @@ npm start
 * [webpack](https://www.npmjs.com/package/webpack) - efficiently builds common js modules as a browser-compatible js bundle  
 * [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware) - runs webpack as middleware
 * [webpack-hot-middleware](https://www.npmjs.com/package/webpack-hot-middleware) - allows hot swapping node modules without a page refresh
-* [react-hot-loader](https://www.npmjs.com/package/react-hot-loader) - hot swapping react components without a page refresh
+* [react-transform-webpack-hmr](https://www.npmjs.com/package/react-transform-webpack-hmr) - hot swapping react components without a page refresh
+* [react-transform-catch-errors](https://www.npmjs.com/package/react-transform-catch-errors) - catch exceptions in component renders
 * [babel](https://www.npmjs.com/package/babel) - transpiles ES6/JSX as ES5
 * [babel-runtime](https://www.npmjs.com/package/babel-runtime) - used to export babel helper code to the vendor file
 * [babel-eslint](https://www.npmjs.com/package/babel-eslint) - lints ES6 code
