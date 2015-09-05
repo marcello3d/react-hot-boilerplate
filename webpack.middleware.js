@@ -32,7 +32,7 @@ module.exports = function webpackMiddleware(app) {
       return path.join(
           webpackConfig.output.publicPath,
           webpackConfig.output.filename.replace(/\[name\]/g, entryName)
-        ) + '?' + Date.now()
+        ) + '?' + Date.now().toString(36)
     }
   }
   // For production we want to cache the assets file at launch
