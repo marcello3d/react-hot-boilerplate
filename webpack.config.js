@@ -11,9 +11,8 @@ module.exports = {
     devtool: IS_DEVELOPMENT_MODE ? 'cheap-module-eval-source-map' : 'source-map',
     entry: {
 
-        // JavaScript entry-points
+        // JavaScript entry-point
         index: './src/index',
-        page2: './src/page2',
 
         // Shared vendor entry-point
         vendor: [

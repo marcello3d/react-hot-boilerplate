@@ -15,9 +15,6 @@ hbs.registerHelper('asset_path', getAssetFilename)
 app.get('/', function (req,res) {
     res.render('index')
 })
-app.get('/page2', function (req,res) {
-    res.render('page2')
-})
 
 // Start the HTTP server
 var server = http.createServer(app)
