@@ -5,8 +5,8 @@ react-hotplate is a boilerplate for React + Webpack + Express with hot reloading
 
 It provides both a development mode (`npm run dev`) and production mode (`npm run build && npm start`).
 
-It was originally based on (gaearon/react-hot-boilerplate)[https://github.com/gaearon/react-hot-boilerplate] and has 
-been updated using (gaearon/react-transform-boilerplate)[https://github.com/gaearon/react-transform-boilerplate].
+It was originally based on [gaearon/react-hot-boilerplate](https://github.com/gaearon/react-hot-boilerplate) and has 
+been updated using [gaearon/react-transform-boilerplate](https://github.com/gaearon/react-transform-boilerplate).
 
 ### Development server
 
