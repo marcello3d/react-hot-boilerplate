@@ -24,8 +24,7 @@ module.exports = {
         ].concat(IS_DEVELOPMENT_MODE ? [
 
             // Development-only modules to require in vendor
-            'webpack-hot-middleware/client',
-            'webpack/hot/only-dev-server'
+            'webpack-hot-middleware/client'
 
         ] : [
             // Production-only modules to require in vendor
@@ -67,25 +66,11 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     module: {
-        loaders: ( IS_DEVELOPMENT_MODE ? [
-
-            // Development-only loaders
-            {
-                // Hot swap React components
-                test: /\.jsx?$/,
-                loader: 'react-hot'
-            }
-
-        ] : [ /* No production-only loaders */ ]).concat([
-
-            // Common loaders
-            {
-                // Transpile ES6/JSX code to ES5
-                test: /\.jsx?$/,
-                loader: 'babel?optional[]=runtime&stage=0',
-                exclude: /node_modules/
-            }
-
-        ])
+        loaders: [{
+            // Transpile ES6/JSX code to ES5
+            test: /\.jsx?$/,
+            loaders: ['babel'],
+            include: path.join(__dirname, 'src')
+        }]
     }
 }
