@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Boilerplate for ReactJS project with hot code reloading with Express",
   "scripts": {
-    "start": "node server",
+    "start": "NODE_ENV=production node server",
     "dev": "NODE_ENV=development node-dev server",
-    "build": "eslint src && rm -rf dist && webpack",
+    "build": "eslint src && rm -rf dist && NODE_ENV=production webpack",
     "test": "eslint src"
   },
   "repository": {
