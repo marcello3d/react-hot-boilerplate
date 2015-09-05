@@ -49,7 +49,6 @@ module.exports = {
 
         // Dev-only plugins
         new webpack.HotModuleReplacementPlugin(), // This generates delta patches for changing modules at runtime
-        new webpack.NoErrorsPlugin() // This allows the server to continue after errors
 
     ] : [
 
