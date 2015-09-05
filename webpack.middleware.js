@@ -1,6 +1,7 @@
 var IS_DEVELOPMENT_MODE = require('./is-development-mode')
 
 var path = require('path')
+var express = require('express')
 var webpackConfig = require('./webpack.config')
 
 module.exports = function webpackMiddleware(app) {
@@ -16,9 +17,7 @@ module.exports = function webpackMiddleware(app) {
         colors: true,
         cached: false,
         chunkModules: false
-      },
-      hot: true,
-      historyApiFallback: true
+      }
     }))
 
     // Adds support for hot reloading of modules
@@ -50,8 +49,7 @@ module.exports = function webpackMiddleware(app) {
   }
 
   // Serve built webpack files
-  var serveStatic = require('serve-static')
-  app.use(webpackConfig.output.publicPath, serveStatic(webpackConfig.output.path))
+  app.use(webpackConfig.output.publicPath, express.static(webpackConfig.output.path))
 
   return getAssetFilename
 }
